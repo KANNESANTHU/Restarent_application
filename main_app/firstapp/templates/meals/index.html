@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="main-wrap">
+        <div class="cover_1">
+          <div class="img_bg" style="background-image: url({% static 'meals/img/slider-1.jpg' %});" data-stellar-background-ratio="0.5">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-12" data-aos="fade-up">
+                  <h2 class="heading">We always provides healthy and fresh food and delivers you with in a small period of time.Your health is our Wealth.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .cover_1 -->
+
+
+
+
+        <div class="section">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-8" data-aos="fade-up">
+
+                <h2 class="mb-5 text-center">Menu List with Price</h2>
+
+                <ul class="nav site-tab-nav" id="pills-tab" role="tablist">
+                  {% for cat in categeries %}
+                  <li class="nav-item">
+                    <a class="nav-link" id="{{ cat }}-tab" data-toggle="pill" href="#{{cat}}" role="tab" aria-controls="{{cat}}" aria-selected="true">{{cat}}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  {% for category in categeries %}
+                  <div class="tab-pane fade show" id="{{category}}" role="tabpanel" aria-labelledby="{{category}}-tab">
+                    {% for meal in meal_list %}
+                    {% if meal.categery == category %}
+                    <div class="d-block d-md-flex menu-food-item">
+                      <div class="text order-1 mb-3">
+                        <h3><a href="{% url 'meal_details' meal.id %}">{{ meal.name }}</a></h3>
+                        <p>{{ meal.description }}</p>
+                      </div>
+                      <div class="price order-2">
+                        <strong>Rs.{{ meal.price }}</strong>
+                      </div>
+                    </div> <!-- .menu-food-item -->
+                    {% endif %}
+                    {% endfor %}
+
+                  </div>
+                  {% endfor %}
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+{% endblock body %}
+
+
+        
+
+      </div> <!-- .main-wrap -->
+      
+
