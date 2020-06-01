@@ -17,7 +17,7 @@ def post_list(request):
         ).distinct()
 
 
-    paginator = Paginator(postlist, 9)
+    paginator = Paginator(postlist, 6)
     page_number = request.GET.get('page')
     postlist = paginator.get_page(page_number)
 

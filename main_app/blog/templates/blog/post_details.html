@@ -45,9 +45,7 @@
                   <ul class="comment-list">
                     {% for comment in comments %}
                     <li class="comment">
-                      <div class="vcard bio">
-                        <img src="img/person_1.jpg" alt="Image placeholder">
-                      </div>
+
                       <div class="comment-body">
                         <h3>{{comment.user}}</h3>
                         <div class="meta">{{comment.created}}</div>
@@ -61,7 +59,7 @@
 
                   <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">Leave a comment</h3>
-                    <form action="#" method="POST" class="p-5 bg-light">
+                    <form action="{% url 'blog:post_details' post.id %}" method="POST" class="p-5 bg-light">
                       {% csrf_token %}
                       {% bootstrap_form comment_form %}
                       {% buttons %}

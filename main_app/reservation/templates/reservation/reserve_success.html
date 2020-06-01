@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Success</title>
+    <style>
+        .ele1{
+        padding:100px;
+        }
+    </style>
+</head>
+<body>
+<center><h1 class="ele1">Successfully Registered</h1></center>
+<center><h3><a href="{% url 'reservation:reserve_table' %}">Reserve another Table</a></h3></center>
+<center><h3><a href="{% url 'home:home' %}">Goto Home</a></h3></center>
+
+</body>
+</html>

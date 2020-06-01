@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 from django.core.mail import send_mail,BadHeaderError
 from django.http import HttpResponse,HttpResponseRedirect
 from .forms import ContactForm
@@ -25,4 +25,4 @@ def send_email(request):
 
     return render(request,'contact/contact.html',context)
 def send_success(request):
-    return HttpResponse('Your email sent successfully')
+    return render(request,'contact/send_success.html')

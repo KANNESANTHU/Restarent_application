@@ -11,3 +11,6 @@ def reserve_table(request):
     context={'form':reserve_form}
     return render(request,'reservation/reservation.html',context)
 # Create your views here.
+
+def reserve_success(request):
+    return render(request,'reservation/reserve_success.html')
